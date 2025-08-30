@@ -1,0 +1,13 @@
+review_id,place_id,place_name,category,city,review_text,label_ad,label_irrel,label_rant
+1,p1,Sunrise Cafe,Cafe,Singapore,Great flat white and friendly staff. Will come again!,0,0,0
+2,p1,Sunrise Cafe,Cafe,Singapore,Use code SAVE20 at www.bestcoffee-deals.com for discounts!!,1,0,0
+3,p2,FitPro Gym,Gym,Singapore,Never been here but my friend said it's awful and dirty.,0,0,1
+4,p2,FitPro Gym,Gym,Singapore,The iPhone 15 camera is amazing 🤩 totally worth it,0,1,0
+5,p3,Lotus Spa,Spa,Singapore,WhatsApp +65 8123 4567 to book special package. DM for promo.,1,0,0
+6,p3,Lotus Spa,Spa,Singapore,Had a relaxing massage; clean rooms; reasonable prices.,0,0,0
+7,p4,Tasty Tacos,Mexican Restaurant,Singapore,Food was cold and I waited 40 mins. I visited last night.,0,0,0
+8,p5,City Library,Library,Singapore,"I love my new phone, but this place is too noisy.",0,1,0
+9,p6,Ocean View Hotel,Hotel,Singapore,Heard from colleagues it's terrible; won't stay.,0,0,1
+10,p6,Ocean View Hotel,Hotel,Singapore,Visit www.travelguru.biz for best rates near the area!,1,0,0
+11,p7,Green Bowl,Vegetarian Restaurant,Singapore,The staff were kind; tofu bowl was fresh.,0,0,0
+12,p8,Tech Repair Hub,Electronics Repair,Singapore,They fixed my laptop in a day. Transparent pricing.,0,0,0

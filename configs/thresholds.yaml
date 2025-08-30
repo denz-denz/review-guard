@@ -1,0 +1,5 @@
+# Thresholds for policy decisions
+advertisement_auto_remove: 0.90
+irrelevant_graylist: 0.75
+rant_hold_review: 0.70
+relevancy_min_pass: 0.50

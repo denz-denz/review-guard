@@ -1,0 +1,11 @@
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.4.2
+sentence-transformers==3.0.1
+transformers==4.42.4
+torch>=2.1.0
+pyyaml==6.0.2
+regex==2024.5.15
+langdetect==1.0.9
+streamlit==1.36.0
+tqdm==4.66.4
