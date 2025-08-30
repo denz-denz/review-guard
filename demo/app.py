@@ -1,6 +1,10 @@
 import streamlit as st
 import json, os, joblib
 from pathlib import Path
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from src.utils import PlaceProfile
 from src.features import EmbeddingService
 from src.rules import rule_advertisement, rule_rant_without_visit, rule_irrelevant
@@ -43,11 +47,15 @@ if run:
         labels = ["advertisement","irrelevant","rant_without_visit"]
         probs = {}
         for i,lbl in enumerate(labels):
+            # handle estimators without predict_proba
             try:
                 p = float(probs_raw[i][0][1])
             except Exception:
+                # fall back: decision_function sigmoid
                 from scipy.special import expit
-                p = float(expit(pipe.estimators_[i].decision_function([text])))
+                # Transform text through TF-IDF first, then get decision function
+                X_transformed = pipe.named_steps['tfidf'].transform([text])
+                p = float(expit(pipe.named_steps['clf'].estimators_[i].decision_function(X_transformed)))
             probs[lbl] = p
 
         ad_rule, ad_spans = rule_advertisement(text)

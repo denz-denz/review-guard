@@ -5,7 +5,10 @@ from sklearn.multiclass import OneVsRestClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
-from .preprocess import preprocess_dataframe
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from src.preprocess import preprocess_dataframe
 
 LABELS = ["label_ad","label_irrel","label_rant"]
 
@@ -15,7 +18,11 @@ def main(args):
     y = df[LABELS].astype(int).values
     X = df["text"].values
 
-    Xtr, Xte, ytr, yte = train_test_split(X, y, test_size=0.25, random_state=42, stratify=df[LABELS])
+    # For small datasets, use a smaller test size or no stratification
+    if len(X) < 20:
+        Xtr, Xte, ytr, yte = train_test_split(X, y, test_size=0.2, random_state=42)
+    else:
+        Xtr, Xte, ytr, yte = train_test_split(X, y, test_size=0.25, random_state=42, stratify=df[LABELS])
 
     pipe = Pipeline([
         ("tfidf", TfidfVectorizer(ngram_range=(1,2), min_df=2, max_df=0.95)),
